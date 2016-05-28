@@ -14,9 +14,8 @@ var cssnano						= require('cssnano');
 var sourcemaps				= require('gulp-sourcemaps');
 var sorting						= require('postcss-sorting');
 var nested 						= require('postcss-nested');
-var scss 							= require('postcss-scss');
 var autoprefixer 			= require('autoprefixer');
-// var prescss						= require('precss');
+
 var uglify						= require('gulp-uglify');
 
 var processors = [
@@ -52,7 +51,9 @@ gulp.task('less', function(){
 	var processors =[
 			autoprefixer({ browser: ['last 2 version']}),
 			cssnano,
-			cssnext
+			cssnext,
+			sorting,
+
 	];
 	return gulp.src('assets/less/main.less')
 		.pipe(less())
